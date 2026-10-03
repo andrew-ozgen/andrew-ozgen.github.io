@@ -89,9 +89,16 @@ ul.pts li::marker{color:var(--accent)}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{font:13px var(--mono);border:1px solid var(--line);padding:3px 8px;border-radius:4px;background:var(--surface)}
 
+.hero-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.headshot{width:132px;height:132px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
+.media{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px}
+.media figure{margin:0;display:grid;gap:6px}
+.media img,.media iframe{width:100%;max-width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line);border-radius:6px;background:var(--bg);display:block}
+.media figcaption{font:12px var(--mono);color:var(--muted)}
 .course{color:var(--muted);font-size:15px;max-width:70ch;margin:0}footer{padding-block:32px 0;border-top:1px solid var(--line);font:13px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 @media (max-width:720px){
+  .headshot{width:96px;height:96px}
   .row{grid-template-columns:1fr}
   .skills{grid-template-columns:1fr}
   .proj{padding:18px}
@@ -113,7 +120,7 @@ ul.pts li::marker{color:var(--accent)}
 
   <header class="hero">
     <span class="eyebrow">Electrical &amp; Computer Engineering · Santa Clara University · Class of 2027</span>
-    <h1>Andrew<br>Ozgen</h1>
+    <div class="hero-top"><h1>Andrew<br>Ozgen</h1><img class="headshot" src="headshot.jpg" alt="Andrew Ozgen" width="132" height="132"></div>
     <p class="lede">Embedded systems, FPGA acquisition, and RF. I build projects end to end: firmware close to the metal, board bring-up, and a lot of time on the scope. <em>Most recently built a 100 MS/s FPGA RF acquisition system as an EE intern at TibaRay. Now working on a LoRa phased-array tracker for senior capstone.</em></p>
     <div class="contact" id="contact-top">
       <a class="btn primary" href="https://www.linkedin.com/in/andrew-ozgen-b109572a1" target="_blank" rel="noopener">LinkedIn</a>
@@ -183,6 +190,10 @@ ul.pts li::marker{color:var(--accent)}
         <header><h3>Autonomous Bartending Robot</h3><span class="status mono">Mar 2026</span></header>
         <p>A fully autonomous robot that navigates a challenge course and performs a bartending-style service sequence. I designed and integrated the mechanical structure, actuation, state-machine logic, sensing architecture, and PID control.</p>
         <p>Light-sensor arrays and motor encoders support both line-following and distance-based navigation. Color discrimination reads the order sequence and routes the robot to the matching tap; a custom arm executes coordinated pull-and-push motions to actuate the tap, with sensing to estimate fill level.</p>
+        <div class="media">
+          <figure><img src="robot.jpg" alt="Fully constructed robot" loading="lazy"><figcaption>Fully constructed robot</figcaption></figure>
+          <figure><iframe src="https://drive.google.com/file/d/1r52n4RFoLZdKNkP2-_3HEfUcRtvaCR-h/preview" title="Video demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>Video demo · <a href="https://drive.google.com/file/d/1r52n4RFoLZdKNkP2-_3HEfUcRtvaCR-h/view" target="_blank" rel="noopener">open in Drive</a></figcaption></figure>
+        </div>
         <ul class="specs"><li><b>Arduino</b> C/C++</li><li><b>PID</b> line following</li><li>encoder odometry</li><li>FSM control</li><li>color sensing</li></ul>
       </article>
 
@@ -190,6 +201,10 @@ ul.pts li::marker{color:var(--accent)}
         <header><h3>Embedded USB Music Player</h3><span class="status mono">May 2025</span></header>
         <p>A USB music player on an STM32 with DAC audio output to external speakers. Interrupt-driven timing and double buffering in a multithreaded architecture keep USB reads and DAC output in sync for distortion-free playback.</p>
         <p>LCD shows track name and elapsed time; an IR remote (NEC protocol) handles play, pause, skip, and rewind. Also implemented playlist management, auto-advance, long-filename handling, and an LED volume meter.</p>
+        <div class="media">
+          <figure><img src="usb-player.jpg" alt="STM32 player on the breadboard" loading="lazy"><figcaption>STM32 player on the breadboard</figcaption></figure>
+          <figure><iframe src="https://drive.google.com/file/d/1-frs7SkESJh2kW-O0T8f6kuPPrHtZvMI/preview" title="Video demo" loading="lazy" allow="autoplay; fullscreen" allowfullscreen></iframe><figcaption>Video demo · <a href="https://drive.google.com/file/d/1-frs7SkESJh2kW-O0T8f6kuPPrHtZvMI/view" target="_blank" rel="noopener">open in Drive</a></figcaption></figure>
+        </div>
         <ul class="specs"><li><b>STM32</b></li><li>USB → DAC</li><li>double buffering</li><li><b>NEC</b> IR</li><li>LCD UI</li></ul>
       </article>
 
